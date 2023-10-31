@@ -7,7 +7,7 @@ import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
 
-const Cadastro = () => {
+const CadastroProfissional = () => {
    
     const [id, setId] = useState<string>("")
     const [nome, setNome] = useState<string>("");
@@ -24,6 +24,7 @@ const Cadastro = () => {
     const [cep, setCep] = useState<string>("");
     const [complemento, setComplemento] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [salario, setSalario] = useState<string>("");
 
     const cadastrarUsuario = (e: FormEvent) => {
         e.preventDefault();
@@ -43,10 +44,12 @@ const Cadastro = () => {
             bairro: bairro,
             cep: cep,
             complemento: complemento,
-            senha: password
+            senha: password,
+            salario: salario
+            
         }
         console.log(dados)
-        axios.post('http://127.0.0.1:8000/api/cliente/store',
+        axios.post('http://127.0.0.1:8000/api/profissional/store',
             dados,
             {
                 headers: {
@@ -55,7 +58,7 @@ const Cadastro = () => {
                 }
             }).then(function(response){
                 console.log(response.data);
-                //window.location.href = "/listagem"
+                //window.location.href = "/listagemProfissional"
             }).catch(function(error){
                 console.log(error);
             })
@@ -105,6 +108,10 @@ const Cadastro = () => {
         if (e.target.name === "password") {
             setPassword(e.target.value);
         }
+
+        if (e.target.name === "salario") {
+            setSalario(e.target.value);
+        }
     }
 
     return (
@@ -115,7 +122,7 @@ const Cadastro = () => {
                 <div className='container'></div>
                 <div className='card'> </div>
                 <div className='card-body'> </div>
-                <h5 className='card-title'>Cadastrar Cliente</h5>
+                <h5 className='card-title'>Cadastrar Profissional</h5>
                 <form onSubmit={cadastrarUsuario} className='row g-3'>
                     <div className='col-6'>
                         <label htmlFor='nome' className='form-label'>Nome</label>
@@ -269,6 +276,17 @@ const Cadastro = () => {
                         ></input>
                     </div>
 
+                    <div className='col-6'>
+                        <label htmlFor='salario' className='form-label'>Salario</label>
+                        <input type='text'
+                            name='salario'
+                            className='form-control'
+                            required
+                            onChange={handleState}
+
+                        ></input>
+                    </div>
+
                     <div className='col-12'>
                         <button
                             type='submit'
@@ -281,4 +299,4 @@ const Cadastro = () => {
     );
 }
 
-export default Cadastro;
+export default CadastroProfissional;

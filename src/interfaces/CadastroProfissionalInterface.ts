@@ -1,5 +1,5 @@
 
-export interface CadastroInterface {
+export interface CadastroProfissionalInterface {
     id: number;
     nome: string;
     celular: string;
@@ -15,4 +15,5 @@ export interface CadastroInterface {
     cep: string;
     complemento: string;
     senha: string;
+    salario: string;
 }
