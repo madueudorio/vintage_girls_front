@@ -2,8 +2,9 @@ import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'r
 import styles from "../App.module.css";
 import { CadastroProfissionalInterface } from '../interfaces/CadastroProfissionalInterface';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const ListagemProfissionalInterface = () => {
+const ListagemProfissional = () => {
 
     const [usuarios, setUsuarios] = useState<CadastroProfissionalInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
@@ -86,7 +87,7 @@ const ListagemProfissionalInterface = () => {
                     <div className='card'>
                         <div className='card-body'>
                             <h5 className='card-title'>
-                                Listagem de Profisionais
+                                Listagem de Profissionais
                             </h5>
                             <table className='table table-hover'>
                                 <thead>
@@ -132,7 +133,8 @@ const ListagemProfissionalInterface = () => {
                                            
                                            
                                             <td>
-                                                <a href="#" className='btn btn-primary btn-sm'>Editar</a>
+                                            <Link to={"/editarprofissional/"+ usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                        
                                                 <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
@@ -149,4 +151,4 @@ const ListagemProfissionalInterface = () => {
     );
 }
 
-export default ListagemProfissionalInterface;
+export default ListagemProfissional;

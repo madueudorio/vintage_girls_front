@@ -2,6 +2,7 @@ import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'r
 import styles from "../App.module.css";
 import { CadastroInterface } from '../interfaces/CadastroInterface';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Listagem = () => {
 
@@ -11,10 +12,10 @@ const Listagem = () => {
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
 
-        if (e.target.name === "pesquisa"){
+        if (e.target.name === "pesquisa") {
             setPesquisa(e.target.value);
+        }
     }
-}
 
     const buscar = (e: FormEvent) => {
         e.preventDefault();
@@ -56,11 +57,12 @@ const Listagem = () => {
             } catch (error) {
                 setError("Ocorreu um erro");
                 console.log(error);
-            }
+            
         }
-
+        }
         fetchData();
     }, []);
+    
 
 
     return (
@@ -69,25 +71,24 @@ const Listagem = () => {
                 <div className='container'>
                     <div className='col-md mb-3'>
                         <div className='card'>
-                            <div className='card-boy'>
-                                <h5 className='card-title'>Pesquisar</h5>
+                            <div className='card-body'>
+                                <h5 className='card-little'>Pesquisar</h5>
                                 <form onSubmit={buscar} className='row'>
                                     <div className='col-10'>
-                                        <input type="text" name="pesquisa" className='form-control' onChange={handleState} />
+                                        <input type="text" name='pesquisa' className='form-control' onChange={handleState} />
                                     </div>
                                     <div className='col-1'>
                                         <button type='submit' className='btn btn-success'>Pesquisar</button>
+
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
-
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>
-                                Listagem de Usuários
-                            </h5>
+                            <h5 className='card-title'>Listagem de Clientes</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
@@ -96,17 +97,15 @@ const Listagem = () => {
                                         <th>Celular</th>
                                         <th>E-mail</th>
                                         <th>CPF</th>
-                                        <th>dataNascimento</th>
-                                        <th>cidade</th>
-                                        <th>estado</th>
-                                        <th>pais</th>
-                                        <th>rua</th>
-                                        <th>numero</th>
-                                        <th>bairro</th>
-                                        <th>cep</th>
-                                        <th>complemento</th>
-                                        <th>senha</th>
-                                       
+                                        <th>Data de Nascimento</th>
+                                        <th>Cidade</th>
+                                        <th>Estado</th>
+                                        <th>País</th>
+                                        <th>Rua</th>
+                                        <th>Número</th>
+                                        <th>Bairro</th>
+                                        <th>CEP</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,25 +124,20 @@ const Listagem = () => {
                                             <td>{usuario.numero}</td>
                                             <td>{usuario.bairro}</td>
                                             <td>{usuario.cep}</td>
-                                            <td>{usuario.complemento}</td>
-                                            <td>{usuario.senha}</td>
-                                           
-                                           
                                             <td>
-                                                <a href="#" className='btn btn-primary btn-sm'>Editar</a>
+                                            <Link to={"/editarcliente/"+ usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                                
                                                 <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
-
                             </table>
-
                         </div>
                     </div>
-                </div >
-            </main >
-        </div >
+                </div>
+            </main>
+        </div>
     );
 }
 
