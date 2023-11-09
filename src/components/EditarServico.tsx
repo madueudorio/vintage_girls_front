@@ -29,9 +29,9 @@ const EditarServico = () => {
             preco: preco
             
         }
-        
+        console.log(dados)
 
-        axios.put("http://10.137.9.134:8000/api/update",
+        axios.put("http://127.0.0.1:8000/api/servico/update",
             dados,
             {
                 headers: {
@@ -39,9 +39,10 @@ const EditarServico = () => {
                     "Content-Type": "aplication/json"
                 }
             }).then(function (response) {
-                window.location.href = "/listagem";
+                window.location.href = "/listagemservico";
             }).catch(function (error) {
                 console.log('ocorreu um erro ao atualizar');
+                console.log(error)
             });
 
     }
@@ -49,8 +50,9 @@ const EditarServico = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/find/" + parametro.id)
+                const response = await axios.get("http://127.0.0.1:8000/api/servico/find/" + parametro.id)
                 console.log(response.data)
+                setId(response.data.data.id);
                 setNome(response.data.data.nome);
                 setDescricao(response.data.data.descricao);
                 setDuracao(response.data.data.duracao);
@@ -89,7 +91,7 @@ const EditarServico = () => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>Cadastrar Cliente</h5>
+                            <h5 className='card-title'>Editar Serviço</h5>
                             <form onSubmit={atualizar} className='row g-3'>
                                 <div className='col-6'>
                                 <label htmlFor='nome' className='form-label'>Nome</label>
@@ -145,7 +147,7 @@ const EditarServico = () => {
                     <div className='col-12'>
                         <button
                             type='submit'
-                            className='btn btn-success btn-sm'>Cadastrar</button>
+                            className='btn btn-success btn-sm'>Editar</button>
                                 </div>
                             </form>
                         </div>

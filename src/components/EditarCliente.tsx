@@ -58,7 +58,7 @@ const EditarCliente = () => {
                     "Content-Type": "aplication/json"
                 }
             }).then(function (response) {
-                window.location.href = "/listagem";
+                window.location.href = "/ListagemCliente";
             }).catch(function (error) {
                 console.log('ocorreu um erro ao atualizar');
             });
@@ -150,7 +150,7 @@ const EditarCliente = () => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>Cadastrar Cliente</h5>
+                            <h5 className='card-title'>Editar Cliente</h5>
                             <form onSubmit={atualizar} className='row g-3'>
                                 <div className='col-6'>
                                     <label htmlFor="nome" className='from-label'>Nome</label>

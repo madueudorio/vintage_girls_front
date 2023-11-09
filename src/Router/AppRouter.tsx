@@ -6,7 +6,7 @@ import {
     Routes
 } from "react-router-dom";
 import Cadastro from "../components/CadastroClientes";
-import Listagem from "../components/Listagem";
+import ListagemCliente from "../components/ListagemCliente";
 import ListagemProfissional from "../components/ListagemProfissional";
 import CadastroProfissional from "../components/CadastroProfissional";
 import CadastroServico from "../components/CadastroServico";
@@ -20,11 +20,11 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="cadastro"
+                <Route path="cadastrocliente"
                     element={<Cadastro />} />
 
-                <Route path="listagem"
-                    element={<Listagem />} />
+                <Route path="listagemCliente"
+                    element={<ListagemCliente />} />
 
 
 

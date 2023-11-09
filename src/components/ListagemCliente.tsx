@@ -4,7 +4,7 @@ import { CadastroInterface } from '../interfaces/CadastroInterface';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Listagem = () => {
+const ListagemCliente = () => {
 
     const [usuarios, setUsuarios] = useState<CadastroInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
@@ -141,4 +141,4 @@ const Listagem = () => {
     );
 }
 
-export default Listagem;
+export default ListagemCliente;
