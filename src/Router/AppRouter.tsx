@@ -51,15 +51,15 @@ const AppRouter = () => {
                     element={<EditarCliente />} />
 
 
-
-
                 <Route path="editarprofissional/:id"
                     element={<EditarProfissional />} />
 
 
-
                 <Route path="editarservico/:id"
                     element={<EditarServico />} />
+
+
+        
 
 
 

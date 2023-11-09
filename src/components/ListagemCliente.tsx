@@ -57,12 +57,35 @@ const ListagemCliente = () => {
             } catch (error) {
                 setError("Ocorreu um erro");
                 console.log(error);
-            
-        }
+
+            }
+
+        
+
         }
         fetchData();
+
     }, []);
-    
+
+    const excluir = (id: number) => {
+        axios.delete('http://127.0.0.1:8000/api/cliente/remover/' +id);
+        async function fetchData() {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/api/cliente/all');
+                setUsuarios(response.data.data);
+
+            } catch (error) {
+                setError("Ocorreu um erro");
+                console.log(error);
+
+            }
+
+        
+
+        }
+        fetchData();
+    }
+
 
 
     return (
@@ -125,9 +148,10 @@ const ListagemCliente = () => {
                                             <td>{usuario.bairro}</td>
                                             <td>{usuario.cep}</td>
                                             <td>
-                                            <Link to={"/editarcliente/"+ usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                                
-                                                <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
+                                                <Link to={"/editarcliente/" + usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
+
+                                                <button onClick={() =>excluir(usuario.id)} className='btn btn-danger btn-sm'>Excluir</button>
+
                                             </td>
                                         </tr>
                                     ))}

@@ -48,7 +48,7 @@ const CadastroProfissional = () => {
             salario: salario
             
         }
-        console.log(dados)
+        
         axios.post('http://127.0.0.1:8000/api/profissional/store',
             dados,
             {
@@ -58,7 +58,7 @@ const CadastroProfissional = () => {
                 }
             }).then(function(response){
                 console.log(response.data);
-                //window.location.href = "/listagemProfissional"
+                window.location.href = "/listagemprofissional"
             }).catch(function(error){
                 console.log(error);
             })

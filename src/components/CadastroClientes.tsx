@@ -7,7 +7,7 @@ import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
 
-const Cadastro = () => {
+const CadastroClientes = () => {
    
     const [id, setId] = useState<string>("")
     const [nome, setNome] = useState<string>("");
@@ -55,7 +55,7 @@ const Cadastro = () => {
                 }
             }).then(function(response){
                 console.log(response.data);
-                //window.location.href = "/ListagemCliente"
+                window.location.href = "/ListagemCliente"
             }).catch(function(error){
                 console.log(error);
             })
@@ -281,4 +281,4 @@ const Cadastro = () => {
     );
 }
 
-export default Cadastro;
+export default CadastroClientes;
