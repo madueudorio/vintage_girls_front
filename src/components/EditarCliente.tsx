@@ -3,8 +3,9 @@ import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from "r
 import styles from "../App.module.css"
 import Header from "./Header";
 import Footer from "./Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import '../components/estilo.css';
 
 const EditarCliente = () => {
 
@@ -312,12 +313,14 @@ const EditarCliente = () => {
 
                                     ></input>
                                 </div>
-
-                                <div className='col-12'>
-                                    <button
-                                        type='submit'
-                                        className='btn btn-success btn-sm'>Editar</button>
-                                </div>
+                                <div className='col-15'>
+                        <button className='btn' type='submit'> Editar
+                        </button>
+                    </div>
+                    <div className='col-15'>
+                        <button className='btn' type='submit'> Recupearar Senha
+                        </button>
+                    </div>
                             </form>
                         </div>
                     </div>

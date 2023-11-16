@@ -14,6 +14,7 @@ import ListagemServico from "../components/ListagemServico";
 import EditarCliente from "../components/EditarCliente";
 import EditarServico from "../components/EditarServico";
 import EditarProfissional from "../components/EditarProfissional";
+import RecupeararSenhaCliente from "../components/RecuperarSenhaCliente";
 
 
 const AppRouter = () => {
@@ -59,7 +60,14 @@ const AppRouter = () => {
                     element={<EditarServico />} />
 
 
-        
+
+
+                <Route path="recuperarsenhacliente/:id"
+                    element={<RecupeararSenhaCliente />} />
+
+
+
+
 
 
 

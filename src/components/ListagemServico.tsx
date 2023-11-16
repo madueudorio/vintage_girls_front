@@ -4,6 +4,7 @@ import styles from "../App.module.css";
 import axios from 'axios';
 import { CadastroServicoInterface } from '../interfaces/CadastroServicoInterface';
 import { Link } from 'react-router-dom';
+import '../components/estilo.css';
 
 const ListagemServico = () => {
 
@@ -97,7 +98,7 @@ const ListagemServico = () => {
                                         <input type="text" name="pesquisa" className='form-control' onChange={handleState} />
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-deeppink'>Pesquisar</button>
                                     </div>
                                 </form>
                             </div>
@@ -117,8 +118,8 @@ const ListagemServico = () => {
                                         <th>Descricao</th>
                                         <th>Duracao</th>
                                         <th>Preco</th>
-                                       
-                                       
+                                        <th>Ações</th>
+                                       <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -129,12 +130,13 @@ const ListagemServico = () => {
                                             <td>{usuario.descricao}</td>
                                             <td>{usuario.duracao}</td>
                                             <td>{usuario.preco}</td>
-                                           
-                                           
-                                           
                                             <td>
-                                            <Link to={"/editarservico/"+ usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                            <button onClick={() =>excluir(usuario.id)} className='btn btn-danger btn-sm'>Excluir</button>
+                                           
+                                           
+                                            
+                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/editarcliente/" + usuario.id} >Editar</Link></button>
+                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha/" + usuario.id} >Recuperar Senha</Link></button>
+                                            <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
                                             </td>
                                         </tr>
                                     ))}

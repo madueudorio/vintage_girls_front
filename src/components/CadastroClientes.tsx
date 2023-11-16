@@ -6,9 +6,10 @@ import Header from './Header';
 import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
+import '../components/estilo.css';
 
 const CadastroClientes = () => {
-   
+
     const [id, setId] = useState<string>("")
     const [nome, setNome] = useState<string>("");
     const [celular, setCelular] = useState<string>("");
@@ -53,16 +54,16 @@ const CadastroClientes = () => {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 }
-            }).then(function(response){
+            }).then(function (response) {
                 console.log(response.data);
                 window.location.href = "/ListagemCliente"
-            }).catch(function(error){
+            }).catch(function (error) {
                 console.log(error);
             })
 
     }
 
-    const handleState = (e: ChangeEvent<HTMLInputElement>) => { 
+    const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
             setNome(e.target.value);
         }
@@ -268,12 +269,11 @@ const CadastroClientes = () => {
 
                         ></input>
                     </div>
-
-                    <div className='col-12'>
-                        <button
-                            type='submit'
-                            className='btn btn-success btn-sm'>Cadastrar</button>
+                    <div className='col-15'>
+                        <button className='btn' type='submit'> Cadastrar
+                        </button>
                     </div>
+                    
                 </form>
             </main>
             <Footer />

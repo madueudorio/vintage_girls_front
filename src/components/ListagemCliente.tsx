@@ -3,6 +3,7 @@ import styles from "../App.module.css";
 import { CadastroInterface } from '../interfaces/CadastroInterface';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../components/estilo.css';
 
 const ListagemCliente = () => {
 
@@ -101,7 +102,7 @@ const ListagemCliente = () => {
                                         <input type="text" name='pesquisa' className='form-control' onChange={handleState} />
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-deeppink'>Pesquisar</button>
 
                                     </div>
                                 </form>
@@ -148,9 +149,9 @@ const ListagemCliente = () => {
                                             <td>{usuario.bairro}</td>
                                             <td>{usuario.cep}</td>
                                             <td>
-                                                <Link to={"/editarcliente/" + usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
-
-                                                <button onClick={() =>excluir(usuario.id)} className='btn btn-danger btn-sm'>Excluir</button>
+                                               <button className='btn btn-deeppink btn-sm'> <Link to={"/editarcliente/" + usuario.id} >Editar</Link></button>
+                                               <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha/" + usuario.id} >Recuperar Senha</Link></button>
+                                                <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
 
                                             </td>
                                         </tr>

@@ -16,4 +16,5 @@ export interface CadastroProfissionalInterface {
     complemento: string;
     senha: string;
     salario: string;
+
 }

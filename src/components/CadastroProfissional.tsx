@@ -6,7 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
-
+import '../components/estilo.css';
 const CadastroProfissional = () => {
    
     const [id, setId] = useState<string>("")
@@ -287,11 +287,12 @@ const CadastroProfissional = () => {
                         ></input>
                     </div>
 
-                    <div className='col-12'>
-                        <button
-                            type='submit'
-                            className='btn btn-success btn-sm'>Cadastrar</button>
+                    <div className='col-15'>
+                        <button className='btn' type='submit'> Cadastrar
+                        </button>
                     </div>
+                    
+                 
                 </form>
             </main>
             <Footer />

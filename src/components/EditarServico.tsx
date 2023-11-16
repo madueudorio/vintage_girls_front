@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import '../components/estilo.css';
 
 const EditarServico = () => {
 
@@ -144,13 +145,16 @@ const EditarServico = () => {
                     </div>
 
                    
-                    <div className='col-12'>
-                        <button
-                            type='submit'
-                            className='btn btn-success btn-sm'>Editar</button>
-                                </div>
+                    <div className='col-15'>
+                        <button className='btn' type='submit'> Editar
+                        </button>
+                    </div>
                             </form>
                         </div>
+                    </div>
+                    <div className='col-15'>
+                        <button className='btn' type='submit'> Recupearar Senha
+                        </button>
                     </div>
 
                 </div>

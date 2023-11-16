@@ -3,6 +3,7 @@ import styles from "../App.module.css";
 import { CadastroProfissionalInterface } from '../interfaces/CadastroProfissionalInterface';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../components/estilo.css';
 
 const ListagemProfissional = () => {
 
@@ -94,7 +95,7 @@ const ListagemProfissional = () => {
                                         <input type="text" name="pesquisa" className='form-control' onChange={handleState} />
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-deeppink'>Pesquisar</button>
                                     </div>
                                 </form>
                             </div>
@@ -122,10 +123,8 @@ const ListagemProfissional = () => {
                                         <th>numero</th>
                                         <th>bairro</th>
                                         <th>cep</th>
-                                        <th>complemento</th>
-                                        <th>senha</th>
                                         <th>salario</th>
-                                       
+                                       <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -144,15 +143,13 @@ const ListagemProfissional = () => {
                                             <td>{usuario.numero}</td>
                                             <td>{usuario.bairro}</td>
                                             <td>{usuario.cep}</td>
-                                            <td>{usuario.complemento}</td>
-                                            <td>{usuario.senha}</td>
                                             <td>{usuario.salario}</td>
-                                           
-                                           
                                             <td>
-                                            <Link to={"/editarprofissional/"+ usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                        
-                                            <button onClick={() =>excluir(usuario.id)} className='btn btn-danger btn-sm'>Excluir</button>
+                                           
+                                       
+                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/editarcliente/" + usuario.id} >Editar</Link></button>
+                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha/" + usuario.id} >Recuperar Senha</Link></button>
+                                            <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
                                             </td>
                                         </tr>
                                     ))}
