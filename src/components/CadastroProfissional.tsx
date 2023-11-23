@@ -7,6 +7,7 @@ import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
 import '../components/estilo.css';
+import Swal from 'sweetalert2';
 const CadastroProfissional = () => {
    
     const [id, setId] = useState<string>("")
@@ -25,6 +26,7 @@ const CadastroProfissional = () => {
     const [complemento, setComplemento] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [salario, setSalario] = useState<string>("");
+    const [pesquisa, setPesquisa] = useState<string>("");
 
     const cadastrarUsuario = (e: FormEvent) => {
         e.preventDefault();
@@ -45,7 +47,8 @@ const CadastroProfissional = () => {
             cep: cep,
             complemento: complemento,
             senha: password,
-            salario: salario
+            salario: salario,
+            pesquisa: pesquisa
             
         }
         
@@ -61,9 +64,16 @@ const CadastroProfissional = () => {
                 window.location.href = "/listagemprofissional"
             }).catch(function(error){
                 console.log(error);
-            })
-
-    }
+            });
+            Swal.fire({
+                title: "Cadastrado com Sucesso",
+                text: "Novo Profissional Cadastrado",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
+            });
+           
+        }
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => { 
         if (e.target.name === "nome") {
@@ -113,6 +123,22 @@ const CadastroProfissional = () => {
             setSalario(e.target.value);
         }
     }
+        const findCep = (e: FormEvent) => {
+            e.preventDefault();
+        
+            fetch('https://viacep.com.br/ws/' + cep + '/json/', {
+                method: 'GET'
+            }).then(response => response.json())
+                .then(
+                    data => {
+                        setCidade(data.localidade);
+        
+                        setEstado(data.uf);
+        
+                    }
+                ).catch(error => { console.log("Pesquisa Inválida") });
+        
+        }
 
     return (
         <div>
@@ -178,25 +204,32 @@ const CadastroProfissional = () => {
                     </div>
 
                     <div className='col-6'>
-                        <label htmlFor='cidade' className='form-label'>Cidade</label>
-                        <input type='text'
-                            name='cidade'
-                            className='form-control'
-                            required
-                            onChange={handleState}
+                        <label htmlFor="cep" className='form-label'>CEP</label>
+                        <input type="text" 
+                        name='cep' onBlur={findCep} 
+                        className='form-control' 
+                        required onChange={handleState} />
+                        
 
-                        ></input>
+                    </div>
+
+
+                    <div className='col-6'>
+                        <label htmlFor="cidade" className='form-label'>Cidade</label>
+                        <input type="text" 
+                        name='cidade' value={cidade} 
+                        className='form-control' 
+                        required onChange={handleState} />
+
                     </div>
 
                     <div className='col-6'>
-                        <label htmlFor='estado' className='form-label'>Estado</label>
-                        <input type='text'
-                            name='estado'
-                            className='form-control'
-                            required
-                            onChange={handleState}
+                        <label htmlFor="estado" className='form-label'>Estado</label>
+                        <input type="text" 
+                        name='estado' value={estado} 
+                        className='form-control' 
+                        required onChange={handleState} />
 
-                        ></input>
                     </div>
 
                     <div className='col-6'>
@@ -243,17 +276,7 @@ const CadastroProfissional = () => {
                         ></input>
                     </div>
 
-                    <div className='col-6'>
-                        <label htmlFor='cep' className='form-label'>Cep</label>
-                        <input type='text'
-                            name='cep'
-                            className='form-control'
-                            required
-                            onChange={handleState}
-
-                        ></input>
-                    </div>
-
+            
                     <div className='col-6'>
                         <label htmlFor='complemento' className='form-label'>Complemento</label>
                         <input type='text'

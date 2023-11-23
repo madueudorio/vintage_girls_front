@@ -5,7 +5,6 @@ import {
     Route,
     Routes
 } from "react-router-dom";
-import Cadastro from "../components/CadastroClientes";
 import ListagemCliente from "../components/ListagemCliente";
 import ListagemProfissional from "../components/ListagemProfissional";
 import CadastroProfissional from "../components/CadastroProfissional";
@@ -15,6 +14,7 @@ import EditarCliente from "../components/EditarCliente";
 import EditarServico from "../components/EditarServico";
 import EditarProfissional from "../components/EditarProfissional";
 import RecupeararSenhaCliente from "../components/RecuperarSenhaCliente";
+import CadastroClientes from "../components/CadastroClientes";
 
 
 const AppRouter = () => {
@@ -22,7 +22,7 @@ const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="cadastrocliente"
-                    element={<Cadastro />} />
+                    element={<CadastroClientes />} />
 
                 <Route path="listagemCliente"
                     element={<ListagemCliente />} />
@@ -50,7 +50,6 @@ const AppRouter = () => {
 
                 <Route path="editarcliente/:id"
                     element={<EditarCliente />} />
-
 
                 <Route path="editarprofissional/:id"
                     element={<EditarProfissional />} />

@@ -10,7 +10,7 @@ import '../components/estilo.css';
 const RecupeararSenhaCliente = () => {
 
     const [id, setId] = useState<string>("")
-    const [Newpassword, setNewPassword] = useState<string>("");
+    const [Email, setEmil] = useState<string>("");
     const [Password, setPassword] = useState<string>("");
 
 
@@ -23,7 +23,7 @@ const RecupeararSenhaCliente = () => {
 
         const dados = {
             id: id,
-            novasenha: Newpassword,
+            email: Email,
             senha: Password
 
         }
@@ -46,9 +46,9 @@ const RecupeararSenhaCliente = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/recuperarsenhacliente/" + parametro.id)
+                const response = await axios.get("http://127.0.0.1:8000/recuperarsenhacliente/find" + parametro.id)
                 console.log(response.data)
-                setNewPassword(response.data.data.novasenha);
+               setEmil(response.data.data.email);
                 setPassword(response.data.data.senha);
 
                 console.log(response)
@@ -64,10 +64,10 @@ const RecupeararSenhaCliente = () => {
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
-            setNewPassword(e.target.value);
+            setEmil(e.target.value);
         }
         if (e.target.name === "celular") {
-            setNewPassword(e.target.value);
+            setEmil(e.target.value);
         }
 
     }
@@ -83,7 +83,7 @@ const RecupeararSenhaCliente = () => {
                             <h5 className='card-title'>Recuperar Senha</h5>
                             
                                 <div className='col-6'>
-                                    <label htmlFor="nome" className='from-label'>Nova senha</label>
+                                    <label htmlFor="nome" className='from-label'>Email</label>
 
                                 </div>
                                 <div className='col-6'>
@@ -93,7 +93,7 @@ const RecupeararSenhaCliente = () => {
                                         className='form-control'
                                         required
                                         onChange={handleState}
-                                        value={Newpassword}
+                                        value={Email}
 
                                     ></input>
                                 </div>
