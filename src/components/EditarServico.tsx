@@ -146,7 +146,7 @@ const EditarServico = () => {
 
                    
                     <div className='col-15'>
-                        <button className='btn' type='submit'> Editar
+                        <button className='btn' type='submit'> Editar Serviço
                         </button>
                     </div>
                             </form>

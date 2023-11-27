@@ -67,7 +67,7 @@ const CadastroProfissional = () => {
             });
             Swal.fire({
                 title: "Cadastrado com Sucesso",
-                text: "Novo Profissional Cadastrado",
+                text: "Novo Serviço Cadastrado",
                 icon: "success",
                 showConfirmButton: false,
                 timer: 1500

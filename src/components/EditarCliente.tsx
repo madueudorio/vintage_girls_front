@@ -314,7 +314,7 @@ const EditarCliente = () => {
                                     ></input>
                                 </div>
                                 <div className='col-15'>
-                        <button className='btn' type='submit'> Editar
+                        <button className='btn' type='submit'> Editar Cliente
                         </button>
                     </div>
                     <div className='col-15'>

@@ -332,7 +332,7 @@ useEffect(() => {
                                 </div>
 
                                 <div className='col-15'>
-                        <button className='btn' type='submit'> Editar
+                        <button className='btn' type='submit'> Editar Profissional
                         </button>
                     </div>
                             </form>

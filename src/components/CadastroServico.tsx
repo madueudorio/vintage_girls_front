@@ -7,6 +7,7 @@ import Footer from './Footer';
 import styles from '../App.module.css';
 import axios from 'axios';
 import '../components/estilo.css';
+import Swal from 'sweetalert2';
 
 const CadastroServico = () => {
    
@@ -41,6 +42,14 @@ const CadastroServico = () => {
             }).catch(function(error){
                 console.log(error);
             })
+            Swal.fire({
+                title: "Cadastrado com Sucesso",
+                text: "Novo Serviço Cadastrado",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
+            });
+                
 
     }
 
