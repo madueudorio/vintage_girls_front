@@ -14,53 +14,39 @@ import EditarCliente from "../components/EditarCliente";
 import EditarServico from "../components/EditarServico";
 import EditarProfissional from "../components/EditarProfissional";
 import CadastroClientes from "../components/CadastroClientes";
+import AgendaClienteListagem from "../components/AgendaClienteListagem";
+import AgendaEditar from "../components/AgendaEditar";
 
 
 const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="cadastrocliente"
-                    element={<CadastroClientes />} />
-
-                <Route path="listagemCliente"
-                    element={<ListagemCliente />} />
+                <Route path="cadastrocliente" element={<CadastroClientes />} />
+                <Route path="cadastroprofissional" element={<CadastroProfissional />} />
+                <Route path="cadastroservico" element={<CadastroServico />} />
 
 
 
-
-                <Route path="cadastroprofissional"
-                    element={<CadastroProfissional />} />
-
-                <Route path="listagemprofissional"
-                    element={<ListagemProfissional />} />
+                <Route path="listagemprofissional" element={<ListagemProfissional />} />
+                <Route path="listagemCliente" element={<ListagemCliente />} />
+                <Route path="listagemservico" element={<ListagemServico />} />
 
 
 
+                <Route path="editarcliente/:id" element={<EditarCliente />} />
+                <Route path="editarprofissional/:id" element={<EditarProfissional />} />
+                <Route path="editarservico/:id" element={<EditarServico />} />
 
-                <Route path="cadastroservico"
-                    element={<CadastroServico />} />
 
-                <Route path="listagemservico"
-                    element={<ListagemServico />} />
+
+                <Route path="agenda/cliente" element={<AgendaCliente />} />
+                <Route path="agenda/cliente/listagem" element={<AgendaClienteListagem />} />
+                <Route path="agenda/editar/:id" element={<AgendaEditar />} />
 
 
 
 
-                <Route path="editarcliente/:id"
-                    element={<EditarCliente />} />
-
-                <Route path="editarprofissional/:id"
-                    element={<EditarProfissional />} />
-
-
-                <Route path="editarservico/:id"
-                    element={<EditarServico />} />
-
-
-
-
-                   
 
 
 
