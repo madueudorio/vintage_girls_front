@@ -1,12 +1,12 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
-import styles from '../router/App.module.css';
+import styles from '../App.module.css';
 import axios from 'axios';
 import '../components/estilo.css'
 import Swal from 'sweetalert2';
 
-const Cadastro = () => {
+const AgendaCliente = () => {
 
     const [horario_data, setData] = useState<string>("")
     const [profissional_id, setProfissonal] = useState<string>("")
@@ -161,4 +161,4 @@ const Cadastro = () => {
         );
     }
 
-    export default Cadastro;
+    export default AgendaCliente;

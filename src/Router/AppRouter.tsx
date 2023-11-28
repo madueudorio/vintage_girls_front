@@ -16,6 +16,8 @@ import EditarProfissional from "../components/EditarProfissional";
 import CadastroClientes from "../components/CadastroClientes";
 import AgendaClienteListagem from "../components/AgendaClienteListagem";
 import AgendaEditar from "../components/AgendaEditar";
+import Cadastro from "../components/AgendaCliente";
+import AgendaCliente from "../components/AgendaCliente";
 
 
 const AppRouter = () => {
