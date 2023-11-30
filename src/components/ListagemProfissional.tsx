@@ -148,7 +148,7 @@ const ListagemProfissional = () => {
                                            
                                        
                                             <button className='btn btn-deeppink btn-sm'> <Link to={"/editarprofissional/" + usuario.id} >Editar</Link></button>
-                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha/" + usuario.id} >Recuperar Senha</Link></button>
+                                            <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha"} >Recuperar Senha</Link></button>
                                             <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
                                             </td>
                                         </tr>

@@ -5,7 +5,7 @@ import { AgendaClienteInterfaces } from '../interfaces/AgendaClienteInterface';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const AgendaClienteListagem = () => {
+const AgendaListagem = () => {
 
     const[usuarios,setUsuarios] = useState<AgendaClienteInterfaces[]>([]);
     const[pesquisa, setPesquisa]= useState<string>('');
@@ -23,7 +23,7 @@ const AgendaClienteListagem = () => {
         if (confirm)
             axios.delete('http://127.0.0.1:8000/api/agenda/excluir/' + id)
                 .then(function (response) {
-                    window.location.href = "/agenda/cliente/listagem"
+                    window.location.href = "/agenda/listagem"
                 }).catch(function (error) {
                     console.log('Ocorreu um erro ao excluir');
                 })
@@ -133,8 +133,9 @@ const AgendaClienteListagem = () => {
                                     <td>{usuario.tipo_pagamento}</td>
                                     
                                     <td>
-                                        <Link to={"/agenda/editar/"+usuario.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                        <button onClick={() => excluir(usuario.id)} className='button btn-black btn-sm'>Excluir</button>
+                                    <button className='btn btn-deeppink btn-sm'> <Link to={"agenda/editar"} >Editar</Link></button>
+                                    <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha"} >Recuperar Senha</Link></button>
+                                            <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
                                     </td>
                                     </tr>
                                     ))}
@@ -152,4 +153,4 @@ const AgendaClienteListagem = () => {
     );
 }
 
-export default AgendaClienteListagem;
+export default AgendaListagem;

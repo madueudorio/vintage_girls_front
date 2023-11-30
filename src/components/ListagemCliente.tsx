@@ -1,13 +1,13 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import styles from "../App.module.css";
-import { CadastroInterface } from '../interfaces/CadastroInterface';
+import { CadastroClienteInterface } from '../interfaces/CadastroClienteInterface';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../components/estilo.css';
 
 const ListagemCliente = () => {
 
-    const [usuarios, setUsuarios] = useState<CadastroInterface[]>([]);
+    const [usuarios, setUsuarios] = useState<CadastroClienteInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
 
@@ -61,7 +61,7 @@ const ListagemCliente = () => {
 
             }
 
-        
+
 
         }
         fetchData();
@@ -69,7 +69,7 @@ const ListagemCliente = () => {
     }, []);
 
     const excluir = (id: number) => {
-        axios.delete('http://127.0.0.1:8000/api/cliente/remover/' +id);
+        axios.delete('http://127.0.0.1:8000/api/cliente/remover/' + id);
         async function fetchData() {
             try {
                 const response = await axios.get('http://127.0.0.1:8000/api/cliente/all');
@@ -81,7 +81,7 @@ const ListagemCliente = () => {
 
             }
 
-        
+
 
         }
         fetchData();
@@ -112,7 +112,7 @@ const ListagemCliente = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>Listagem de Clientes</h5>
+                            <h5  className='card-title'>Listagem de Clientes</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
@@ -149,9 +149,9 @@ const ListagemCliente = () => {
                                             <td>{usuario.bairro}</td>
                                             <td>{usuario.cep}</td>
                                             <td>
-                                               <button className='btn btn-deeppink btn-sm'> <Link to={"/editarcliente/" + usuario.id} >Editar</Link></button>
-                                               <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha/" + usuario.id} >Recuperar Senha</Link></button>
-                                                <button onClick={() =>excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
+                                                <button className='btn btn-deeppink btn-sm'> <Link to={"/editarcliente/" + usuario.id} >Editar</Link></button>
+                                                <button className='btn btn-deeppink btn-sm'> <Link to={"/recuperarsenha"} >Recuperar Senha</Link></button>
+                                                <button onClick={() => excluir(usuario.id)} className='btn btn-deeppink btn-sm'>Excluir</button>
 
                                             </td>
                                         </tr>

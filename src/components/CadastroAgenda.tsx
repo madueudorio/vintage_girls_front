@@ -6,7 +6,7 @@ import axios from 'axios';
 import '../components/estilo.css'
 import Swal from 'sweetalert2';
 
-const AgendaCliente = () => {
+const CadastroAgenda = () => {
 
     const [horario_data, setData] = useState<string>("")
     const [profissional_id, setProfissonal] = useState<string>("")
@@ -17,7 +17,6 @@ const AgendaCliente = () => {
 
 
 
-    //useState = estado do componente
 
     const cadastrarUsuario = (e: FormEvent) => {
         e.preventDefault();
@@ -47,7 +46,7 @@ const AgendaCliente = () => {
                         text: "Agendamento cadastrado!",
                         icon: "success"
                       });
-                      window.location.href = "/agenda/cliente/listagem"
+                      window.location.href = "/agenda/listagem"
                 }
                 console.log(response)
                 
@@ -161,4 +160,4 @@ const AgendaCliente = () => {
         );
     }
 
-    export default AgendaCliente;
+    export default CadastroAgenda;

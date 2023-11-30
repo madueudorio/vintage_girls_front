@@ -64,7 +64,7 @@ const CadastroClientes = () => {
             });
             Swal.fire({
                 title: "Cadastrado com Sucesso",
-                text: "Novo Profissional Cadastrado",
+                text: "Novo Cliente Cadastrado",
                 icon: "success",
                 showConfirmButton: false,
                 timer: 1500
@@ -188,7 +188,7 @@ const CadastroClientes = () => {
 
                         <div className='col-6'>
                             <label htmlFor='dataNascimento' className='form-label'>Data de Nascimento</label>
-                            <input type='text'
+                            <input type='date'
                                 name='dataNascimento'
                                 className='form-control'
                                 required

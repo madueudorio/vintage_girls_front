@@ -79,6 +79,8 @@ const CadastroServico = () => {
                 <h5 className='card-title'>Cadastrar Serviço</h5>
                 <form onSubmit={cadastrarServico} className='row g-3'>
                     <div className='col-6'>
+
+                        
                         <label htmlFor='nome' className='form-label'>Nome</label>
                         <input type='text'
                             name='nome'

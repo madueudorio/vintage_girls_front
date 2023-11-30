@@ -157,7 +157,7 @@ useEffect(() => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>Editar Profissional</h5>
+                            <h2 className='card-title'>Editar Profissional</h2>
                             <form onSubmit={atualizar} className='row g-3'>
                                 <div className='col-6'>
                                     <label htmlFor="nome" className='from-label'>Nome</label>
